@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prashant PortFolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+    
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --accent-color: #e74c3c;
+        }
+    
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+          
+           
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        .btn-accent {
+            background: var(--accent-color);
+        }
+        
+        .btn-accent:hover {
+            background: #c0392b;
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+            margin: 15px auto;
+        }
+        
+        
+        header {
+            background: white;
+           
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+        
+        .logo span {
+            color: var(--primary-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        
+        #hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #f1f1f1 0%, #f9fcff 100%);
+            text-align: center;
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto; 
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+        
+        .hero-content h1 span {
+            color: var(--primary-color);
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #666;
+        }
+        
+        .hero-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .social-icons {
+            margin-top: 30px;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            margin: 0 10px;
+            line-height: 40px;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        
+        
+        #about {
+            background: white;
+          
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 30px;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        
+        .about-skills {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .skill-item {
+            margin-bottom: 20px;
+        }
+        
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .skill-bar {
+            height: 10px;
+            background: #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 5px;
+        }
+        
+        
+        #resume {
+            background: #f5f7fa;
+        }
+        
+        .resume-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .resume-column {
+            flex: 1;
+            min-width: 300px;
+            padding: 0 15px;
+        }
+        
+        .resume-item {
+            background: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        
+        .resume-item::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 100%;
+            background: var(--primary-color);
+            left: -15px;
+            top: 0;
+        }
+        
+        .resume-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .resume-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .resume-item .date {
+            display: inline-block;
+            background: #e0e0e0;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+        }
+        
+        .resume-item p {
+            color: #666;
+        }
+        
+        .download-btn {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        
+        #contact {
+            background: white;
+        }
+        
+        .contact-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 30px;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+        
+        .contact-info p {
+            margin-bottom: 30px;
+            color: #666;
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-details div {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .contact-details i {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        textarea.form-control {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        
+        footer {
+            background: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        footer p {
+            margin-bottom: 20px;
+        }
+        
+        .footer-social a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            margin: 0 10px;
+            line-height: 40px;
+            transition: all 0.3s;
+        }
+        
+        .footer-social a:hover {
+            background: var(--primary-color);
+            transform: translateY(-5px);
+        }
+        
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 40px 0;
+                transition: all 0.5s;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .about-text, .about-skills {
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Prashant <span>  Portfolio</span></div>
+                <ul class="nav-links">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#resume">Resume</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <img src="WhatsApp Image 2025-04-05 at 21.26.52_78f342a1.jpg" alt="Prashant arya" class="hero-img">
+                <h1>Hi, I'm <span>Prashant Arya</span></h1>
+                <p>Software Engineer | Front end Developer | Problem Solver</p>
+                <div>
+                    <a href="#contact" class="btn">Hire Me</a>
+                    <a href="#resume" class="btn btn-accent">My Resume</a>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/prashantarya07" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href=""><i class="fab fa-github"></i></a>
+                    <a href="www.https://x.com/Prashantgwl07" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/prxhnttttt_?igsh+M#pyYnBsbW54ZhY1" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Who Am I?</h3>
+                    <p>"I'm an aspiring Software Engineer with a strong passion for building innovative and efficient web applications. I specialize in full-stack development, with a growing expertise in both frontend and backend technologies.</p>
+                    <p>My journey in tech started when I was 15 years old, tinkering with HTML and CSS to build simple websites. Since then, I've grown to master multiple programming languages and frameworks.</p>
+                    <p>When I'm not coding, you can find me hiking, reading tech blogs, or contributing to open-source projects. I believe in continuous learning and staying updated with the latest industry trends.</p>
+                </div>
+                <div class="about-skills">
+                    <h3>My Skills</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Web Development</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>MongoDB</span>
+                            <span>60%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 60%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>C++</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Python</span>
+                            <span>60%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 60%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>JavaScript</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="resume" class="section">
+        <div class="container">
+            <h2 class="section-title">My Resume</h2>
+            <div class="resume-content">
+                <div class="resume-column">
+                    <h3>Education</h3>
+                    <div class="resume-item">
+                        <h3>Pursuring B.tech with Computer Science Engineering</h3>
+                        <h4>Vikrant University</h4>
+                        <span class="date">2023 - 2027</span>
+                        <p>Specialized in Artificial Intelligence and Machine Learning. Thesis on "Neural Networks for Image Recognition".</p>
+                    </div>
+                    <div class="resume-item">
+                        <h3>I've completed my school education through the MP Board.</h3>
+                        <h4>Maharana Pratap Hiegher Secondary school</h4>
+                        <span class="date">2022 - 2023</span>
+                        <p>Completed school education with a focus on Mathematics stream, developing strong analytical and problem-solving skills.</p>
+                    </div>
+                </div>
+             
+            </div>
+            <div class="download-btn">
+                <a href="file:///C:/Users/hp/Desktop/JS_Chapterwise_Notes.pdf" target="_blank" class="btn btn-accent">Download Resume</a>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Talk About Your Project</h3>
+                    <p>I'm available for freelance work and full-time positions. Feel free to contact me for any questions or just to say hello!</p>
+                    <div class="contact-details">
+                        <div>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Madhya pradesh, Gwalior</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-envelope"></i>
+                            <span>prashantgwl9340@gmail.com</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-phone"></i>
+                            <span>+91 9340400324</span>
+                        </div>
+                    </div>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/prxhnttttt_?igsh+M#pyYnBsbW54ZhY1" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm" action="/post" method="post">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Prashant Portfolio. All Rights Reserved.</p>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/prashantarya07" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="www.https://x.com/Prashantgwl07" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+
+      
+
+        
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+        
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            header.classList.toggle('sticky', window.scrollY > 0);
+        });
+        
+
+      
+        
+        
+        const downloadBtn = document.querySelector('.download-btn a');
+        if (downloadBtn) {
+            downloadBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+              
+                window.open("file:///C:/Users/hp/Desktop/JS_Chapterwise_Notes.pdf");
+            });
+        }
+    </script>
+</body>
+</html>
